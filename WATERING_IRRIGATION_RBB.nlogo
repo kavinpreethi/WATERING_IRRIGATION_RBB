@@ -504,7 +504,7 @@ TEXTBOX
 166
 331
 196
-Rainfall, Temperature and Water Availability
+Water Availability Settings
 14
 105.0
 0
