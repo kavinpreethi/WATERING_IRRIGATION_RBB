@@ -5,7 +5,6 @@ extensions [ rnd ]
 globals
 [
   year_number                               ;; counter to keep track of model years
-  month_name                                ;; Jan - Dec
   month_number                              ;; 0 - 11
   low_flow                                  ;; annual water flow in river is low
   medium_flow                               ;; annual water flow into the river is medium
@@ -55,7 +54,6 @@ end
 to initialise-globals
   set year_number 1
   set month_number 0                                                             ;; month number starts at 0 to work easily with NetLogo lists
-  set month_name [ "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec" ]
   set main_canal_level 20
   set sec_canal_level main_canal_level - 1
   set wat_allocated_irr 0
@@ -221,7 +219,7 @@ to route-water
   set monthly_water_use 0
   let water_recipients patches with [ p_type = 0 or p_type = "scanal" ]
   ask water_recipients [
-    ;; randomly pick one neighbour with lowest water volume and move 10% of the difference in volume to that neighbour
+    ;; randomly pick one neighbour with lowest water volume and move a % of the difference in volume of water (determined by benevolence parameter set via interface) to that neighbour
     let local_min 0
     let min_vol 0
     let extra 0
@@ -279,12 +277,12 @@ end
 ;; update simulated time and time-dependent variables
 to update-time
   set month_number month_number + 1                                                                ;; incrememt by one month
-  if (month_number > 11) [                                                                         ;; tally outputs of the year completed
+  if (month_number > 11) [
     clear-all-plots
     set year_number year_number + 1                                                                ;; increment year
     set month_number 0                                                                             ;; first month of the new year
     set annual_flow (list (list low_flow .1 ) (list medium_flow .7 ) (list high_flow .05 ) )       ;; choose water availability for the new year based on specified probabilities
-    set water_source first rnd:weighted-one-of-list annual_flow [ [p] -> last p ]                  ;; assign water level at source for the new year based on gProbAnnualFlow
+    set water_source first rnd:weighted-one-of-list annual_flow [ [p] -> last p ]                  ;; assign water level at source for the new year based on annual_flow
   ]
 end
 
@@ -703,7 +701,7 @@ TEXTBOX
 667
 1093
 877
-Visualisation cue: Press setup. Notice the reservoir, main canal and secondary canals (parallel blue lines), and irrigable land (green patches, varying shades indicate varying slopes). \nPress go and notice the water flowing from the reservoir -> main canal -> secondary canals -> irrigable patches. Darker the shade of blue, greater the amount of water on patch
+Visualisation cues: \nPress setup: Notice the reservoir, main canal and secondary canals (parallel blue lines), and irrigable land (green patches, varying shades indicate varying heights)\n\nPress go: Notice water flowing from the reservoir -> main canal -> secondary canals -> irrigable patches. Darker the shade of blue, greater the amount of water on patch
 14
 25.0
 1
@@ -719,7 +717,7 @@ This NetLogo model is a Reusable Building Block (RBB) called WATERING_IRRIGATION
 
 * This RBB represents an irrigation system made up of different types of patches. On setup you can identify these as: reservoir (water store providing water to the irrigation scheme), buffer zone (dummy area), main canal (principal outlet from reservoir), secondary canal (multiple outlets from the main canal), and water recipients (all green patches on setup). 
 
-* On setup, the varying shades of green indicate the slope of patches. Darker the green, greater the elevation of patches. Water reaches patches with the highest elevation first (assuming water is pumped up for the purpose of irrigation) and then flows to patches with lower elevations
+* On setup, the varying shades of green indicate the varying height of patches. Darker the green, greater the elevation of patches. Water reaches patches with the highest elevation first (assuming water is pumped up for the purpose of irrigation) and then flows to patches with lower elevations
 
 * Water allocated for irrigation flows from the reservoir -> main canal -> secondary canals and finally reaches the water recipient patches
 
@@ -732,9 +730,10 @@ _**minRElevation:**_ Minimum water level (elevation) in source
 _**meanRElevation:**_ Mean water level (elevation) in source
 _**maxRElevation:**_ Max water level (elevation) in source
 _**surface_elevation:**_ Mean surface elevation of patches in the simulated irrigation scheme
-_**rElevation:**_  shows water elevation in Tono dam (based on empirical data)
-_**rVolume:**_ shows volume of water (in MCM) corresponding to rElevation in Tono dam (based on empirical data)
-_Note:_ These 6 parameters are used to generate low, medium and high flows (all following a cosine pattern) acting as the water source (e.g., a bigger dam) supplying to the reservoir in our simulation
+_**rElevation:**_ Shows the average water level in meters above sea level (MASL) in Tono dam (Ghana) for each month of the year
+_**rVolume:**_ Shows the average volume of water in million cubic meters (MCM) in Tono dam (Ghana) corresponding to rElevation values each month. 
+
+_**Note:**_ An Area-Volume-Elevation mapping for a reservoir plays a key role in planning reservoir operations. We use _rElevation_ and _rVolume_ as an empirical reference to create simulated low, medium and high flows (all following a cosine pattern) based on _minRElevation_, _meanRElevation_, _maxRElevation_ and _surfaceRElevation_ to act as the water source (e.g., a bigger dam) supplying to the reservoir in our simulation
 
 
 #### The Irrigation Scheme Features input settings have 5 sliders:
