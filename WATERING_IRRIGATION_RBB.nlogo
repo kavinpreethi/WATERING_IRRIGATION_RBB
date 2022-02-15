@@ -776,7 +776,7 @@ The WATERING_irrigation RBB is an adaptation of the Watershed model (http://ccl.
 
 ## CREDITS AND REFERENCES
 
-Please email Dr Kavin Narasimhan (k.narasimhan@surrey.ac.uk) for comments/queries. If you adapt/use the WATERING_IRRIGATION_RBB model, we would appreciate if you cite our GitHub repo, as well as the Watershed model (http://ccl.northwestern.edu/netlogo/models/community/watershed) based on which we have created this model.
+Please email Dr Kavin Narasimhan (k.narasimhan@surrey.ac.uk) for comments/queries. If you adapt/use the WATERING_IRRIGATION_RBB model, we would appreciate if you cite our GitHub repo, as well as the Watershed model (http://ccl.northwestern.edu/netlogo/models/community/watershed) based on which we have created this model. Acknowledgment: This work was supported by UK Research and Innovation Economic and Social Research Council [ES/P011373/1] as part of the Global Challenges Research Fund.
 @#$#@#$#@
 default
 true
