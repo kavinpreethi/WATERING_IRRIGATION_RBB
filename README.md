@@ -1,4 +1,7 @@
 # WATERING_IRRIGATION_RBB
+
+DOI: 10.5281/zenodo.6323633
+
 A NetLogo Reusable Building Block (RBB) model to simulate water flow in an irrigation scheme.
 
 - Download the WATERING_IRRIGATION_RBB.nlogo file.
