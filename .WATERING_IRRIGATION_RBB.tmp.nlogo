@@ -250,7 +250,7 @@ to route-water
 end
 
 to water-losses
-  ;; reduce water level by lossRate, which is linear and not proportional as it is due to surface area, not volume
+  ;; reduce water level by loss-ate, which is linear and not proportional as it is due to surface area, not volume
    if lossRate > 0 and losses?
    [ ask patches with [ water_level > surface_level ]
      [ set water_level water_level - random-float lossRate
