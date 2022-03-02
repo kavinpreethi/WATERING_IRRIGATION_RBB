@@ -709,7 +709,7 @@ Visualisation cues: \nPress setup: Notice the reservoir, main canal and secondar
 @#$#@#$#@
 ## WHAT IS IT?
 
-This NetLogo model is a Reusable Building Block (RBB) called WATERING_IRRIGATION_RBB. It is a sub-model of the WATER user associations at the Interface of Nexus Governance (WATERING) model (see https://www.youtube.com/watch?v=U-nqs9ak2nY). WATERING allows exploring the impact of community-based water governance on water availability, water use and economic productivity within an irrigation scheme. 
+This NetLogo model is a reusable component (also referred to as a Reusable Building Block or RBB) called WATERING_IRRIGATION_RBB. It is a sub-model of the WATER user associations at the Interface of Nexus Governance (WATERING) model (see https://www.youtube.com/watch?v=U-nqs9ak2nY).
 
 ## HOW IT WORKS
 
@@ -777,6 +777,9 @@ The WATERING_irrigation RBB is an adaptation of the Watershed model (http://ccl.
 ## CREDITS AND REFERENCES
 
 Please email Dr Kavin Narasimhan (k.narasimhan@surrey.ac.uk) for comments/queries. If you adapt/use the WATERING_IRRIGATION_RBB model, we would appreciate if you cite our GitHub repo, as well as the Watershed model (http://ccl.northwestern.edu/netlogo/models/community/watershed) based on which we have created this model. Acknowledgment: This work was supported by UK Research and Innovation Economic and Social Research Council [ES/P011373/1] as part of the Global Challenges Research Fund.
+
+_**About WATERING:** WATERING was developed as an exploratory tool to understand and explain how participatory irrigation management through Water User Associations (WUAs) work. The model allows exploring the impact of community-based water governance (through WUAs) on water availability, water use and economic productivity within an irrigation scheme. Please see https://www.youtube.com/watch?v=U-nqs9ak2nY for more information._
+_**Note:** This RBB is not WATERING, it is a sub-model of WATERING which specifically only mimics water flow through an irrigation scheme. Our complete WATERING model includes other components like crop growth and water management to simulate various aspects of community-based water management through WUAs_
 @#$#@#$#@
 default
 true
